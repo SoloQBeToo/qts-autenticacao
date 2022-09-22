@@ -1,7 +1,11 @@
 <?php
 include "config.php";
 
-if (isset($_POST['submit'])) {
+    
+if (isset($_POST['enviar'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
     if ($username != "" && $password != "") {
         $sql_query = "SELECT COUNT(*) AS userCount FROM users WHERE username='". $username . "'" . "AND password=" ."'" . $password . "'";
         $result = mysqli_query($con, $sql_query);
@@ -38,7 +42,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="username"/>
                 <input type="password" name="password"/>
                 <div>
-                    <input type="submit" value="Login" name="submit"/>
+                    <input type="submit" value="Login" name="enviar"/>
                 </div>
             </div>
         </form>
